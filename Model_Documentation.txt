@@ -1,0 +1,23 @@
+* How to generate paths
+ First, I referred to "Project Walkthrough and Q&A, coded basis of path generation.
+ The Outline of gerating paths is below.
+
+  1.refer to sensor fusion result
+  2.make decision(go straight or turn left/right)
+  3.coordinate transformation(from global to local)
+  4.spline interpolation
+  5.coordinate transformation(from local to global)
+
+ Next, I go into detail of making decision, line number #281 to #380 of main.cpp.
+ I coded based on the rule based approach.
+
+ First, I check the distance of car that is in front of my car.
+ If the distance is small, my car should decelerate or turn left/right.
+ So, relating flags go true.
+
+ Furthermore, I check the feasibility of turning left/right by checking the car of next lanes.
+ And, calculate turning left cost and turning right cost to decide turning direction.
+
+ After checking all cars in sensor fusions, I decided my car should do next
+ based on the above flags and costs.
+
